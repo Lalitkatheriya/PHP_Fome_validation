@@ -1,0 +1,20 @@
+<?PHP
+include("dbconfig.php");
+$ID =$_GET["id"];
+$Delete= "delete from  student_info where id='".$ID."'";
+$query= mysqli_query($conn,$Delete);
+
+if($query){
+    $_SESSION["msg2"]="Data  Sucssesfull Deleted";
+    header("location:VeiwData.php"); 
+   }else{
+     echo "Something went wrong!";
+}
+
+
+
+
+
+
+
+?>

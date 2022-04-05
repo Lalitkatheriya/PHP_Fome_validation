@@ -1,0 +1,38 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: scroll;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+}
+
+.header {
+    background-color: rgb(11, 18, 43);
+}
+
+.header h5 {
+    color: #fff;
+}
+
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+}
+
+header {
+    background-color: #fff;
+    height: 70px;
+}
+
+#TABLE {
+    color: rgb(37, 23, 61)!important;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+table {
+    table-layout: fixed;
+}
