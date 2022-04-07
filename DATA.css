@@ -1,0 +1,57 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: scroll;
+    background-color: rgb(249, 249, 249);
+    width: 100%;
+}
+
+.header {
+    background-color: rgb(27, 14, 52);
+    height: 100px;
+}
+
+.header h5 {
+    color: #fff;
+}
+
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+}
+
+header {
+    background-color: #fff;
+    height: auto;
+}
+
+#TABLE {
+    color: rgb(37, 23, 61)!important;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+table {
+    table-layout: fixed;
+}
+
+i:hover {
+    color: rgb(107, 206, 96);
+}
+
+.modal-header {
+    background-color: rgb(255, 255, 255);
+}
+
+.modal-header h5 {
+    font-size: 1.8rem !important;
+    color: rgb(13, 8, 39);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#Modal button {
+    position: relative;
+}

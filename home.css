@@ -1,0 +1,122 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    overflow: scroll;
+}
+
+#home {
+    height: 100vh;
+    background-color: rgb(11, 11, 32);
+}
+
+h1 {
+    text-align: center;
+    font-size: 5rem;
+    font-family: 'Times New Roman', Times, serif;
+    color: aliceblue;
+    position: absolute;
+    top: 50%;
+}
+
+#Home h2 {
+    color: #1f1a41;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p {
+    color: #a29a9a;
+    text-align: justify;
+}
+
+
+/* Footer */
+
+footer {
+    height: 20%;
+    background-color: rgb(232, 232, 232);
+}
+
+.link {
+    position: relative;
+    right: 42%;
+    top: 25%;
+    color: #FFF;
+}
+
+footer h2 {
+    font-size: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+    color: #FFF;
+}
+
+li {
+    float: right;
+    padding: 5px;
+    list-style: none;
+}
+
+.link i {
+    font-size: 3rem;
+    color: rgb(6, 17, 26);
+    align-items: center;
+    transition: 1s;
+}
+
+i:hover {
+    color: rgb(45, 45, 40);
+}
+
+.nav-item a {
+    justify-content: space-around;
+    color: rgb(14, 24, 33)!important;
+    font-size: 1.5rem;
+    transition: 2s;
+}
+
+a:hover {
+    color: rgb(76, 79, 81)!important;
+    font-size: 1.6rem;
+    text-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    ;
+}
+
+.navbar {
+    position: relative;
+    left: 22%;
+}
+
+
+/* Login Fome */
+
+form {
+    position: relative;
+    left: 27%;
+    top: 5%;
+    background-color: #FFF;
+}
+
+.login {
+    background-color: #FFF;
+    height: 80%;
+    width: 50%;
+    position: relative;
+    left: 25%;
+    border-radius: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    top: 10%;
+}
+
+label {
+    color: #1f1a41;
+    font-size: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+button {
+    position: relative;
+    width: 100%;
+    background-color: #1f1a41 !important;
+}
