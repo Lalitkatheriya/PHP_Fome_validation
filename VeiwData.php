@@ -211,64 +211,25 @@
 
 
 <!-- Data Table -->
-<table id="TABLE">
-<thead>
-<tr>
-             <th>Sr.No</th> 
-             <th>Profile</th>
-              <th>FristName</th>
-              <th>LastName</th>
-              <th>Father</th>
-              <th>Mother</th>
-              <th>Phone</th>
-              <th>GEN</th>
-              <th>Hobbies</th>
-              <th>Address</th>
-              <th>Password</th>
-              <th>Update</th>
-              <th>Remove</th>
-              
-</tr>
-</thead>
-<!-- Select DATA Query -->
-        <?php
-             $Select = "select * from student_info";
-            $query = mysqli_query($conn,$Select);
-            $count=0;
-
-            while($resp= mysqli_fetch_array($query)){
-            $count++;
-
-           ?>
-           <tbody>
-           <tr id="row_<?php echo $resp['ID']?>">
-                <td class="text-center"><?php echo $count?></td>
-                <td class="text-center"><img src="<?php echo $resp['Image']?>"style="height:50px;width:50px;"/></td>
-                <td class="text-center"><?php echo $resp['Fname']?></td>
-                <td class="text-center"><?php echo $resp['Lname']?></td>
-                <td class="text-center"><?php echo $resp['Father']?></td>
-                <td class="text-center"><?php echo $resp['Mother']?></td>
-                <td class="text-center"><?php echo $resp['Phone']?></td>
-                <td class="text-center"><?php echo $resp['Gender']?></td>
-                <td class="text-center"><?php echo $resp['Hobbies']?></td>
-                <td class="text-center"><?php echo $resp['Address']?></td>
-                <td class="text-center"><?php echo $resp['Password']?></td>
-                 <td>
-                 <button type="button" onclick="EditDAta(<?php echo $resp['ID']?>)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">
-                     Update
-                     </button>
-
-                </td>
-                <td>
-                <button onclick="Delete(<?php echo $resp['ID']?>)"  class="btn btn-danger p-2"></i>Delete</button>
-                </td>
-               
-    </tr>
+<table id="Table">
+  <thead>
+    <tr></tr>
+    <th> ID </th>
+    <th> Status</th>
+    <th> Fname </th>
+    <th> Lname</th>
+    <th> Father</th>
+    <th> Mother</th>
+    <th> Phone</th>
+    <th> Email</th>
     
-    
-        <?php
-            }
-        ?>
+    <th> Gender</th>
+    <th> Hobbies</th>
+    <th> Address</th>
+    <!-- <th> Status</th> -->
+    <th> Action</th>
+
+  </thead>
 
 
 </table>
@@ -277,18 +238,7 @@
 
 </body>
 
-<!-- DATA TABLE OF JQURY -->
-<script>
-// $(document).ready(function() {
 
-//     $('#TABLE').DataTable();
-// });
-$(document).ready(function() {
-    $('#TABLE').DataTable( {
-        // "ajax": '../ajax/data/arrays.txt'
-    } );
-} );
-</script>
 
 <!-- Erro Fade Out After Five Second -->
 <script>
@@ -305,6 +255,36 @@ setTimeout(function() {
 <!--AXAX FORE DELETE DATA-->
 
 <Script>
+Lode();
+   function Lode() {
+        $('#Table').dataTable({
+            "processing": true,
+            "serverSide":true,
+            "destroy":true,
+            "ajax":{
+              "url":"table.php",
+              "type":"POST",
+              "dataType":"json"
+            },
+            "columns": [
+                {"data": "ID"},
+                {"data": "Status"},
+                {"data": "Fname"},
+                {"data": "Lname"},
+                {"data": "Father"},
+                {"data": "Mother"},
+                {"data": "Phone"},
+                {"data": "Email"},
+                {"data": "Gender"},
+                {"data": "Hobbies"},
+                {"data": "Address"},
+                {"data": "Action"},
+            ]
+        });
+    }
+
+
+
 // process the form
  function Delete(i){
   if (confirm("Are You Sure Delete your data ?")==true){
@@ -312,15 +292,15 @@ setTimeout(function() {
         type    : 'POST',
         url     : "Ajaxdelete.php",
         data    : {"id":i},
-       success: function(responce){ 
-     
+       success: function(responce){
+         Lode();
        var a = "#row_"+i;
-    
-         $(a).remove();
+        $(a).remove();
        }
      });
     }
     };
+
 
 // Ajax UPDATE form
  function EditDAta(j){
@@ -376,14 +356,13 @@ setTimeout(function() {
       var Address = $("#ADD").val();
       var Password = $("input[name='Pass']").val();
       console.log(id,Fname,Lname,Father,Mother,Email,Phone,Gender,Hobbies,Address,Password);
-
       $.ajax({
       type    : "POST",
       datatype: 'json',
       url    : "AjaxEdit.php",
       data   : {"id":id,"Fname":Fname,"Lname":Lname,"Father":Father,"Mother":Mother,"Email":Email,"Phone":Phone,"Gender":Gender,"Hobbies":Hobbies,"Address":Address,"Password":Password},
       success: function(res){ 
-        // location.reload();
+      Lode();
       $('#Modal').modal('hide');
       }
           
